@@ -11,7 +11,7 @@ with open('phrases.txt', 'r') as f:
         phrases.append(row.rstrip('\n'))
 
 audio_data = ''
-with open('15_59_53.log') as f:
+with open('output.raw') as f:
     audio_data = f.read()
 
 
@@ -38,7 +38,6 @@ def request_for_transcription(language: str) -> dict:
         data=json.dumps({
             "config": {
                 "encoding": "FLAC",
-                "sampleRateHertz": 44100,
                 "languageCode": language,
                 "speechContexts": [
                     {
